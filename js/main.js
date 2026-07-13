@@ -79,6 +79,20 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
+  // Contact page tab switcher (Project Estimate / General Inquiry / Job Application)
+  var contactTabs = document.querySelectorAll('.contact-tab');
+  if (contactTabs.length) {
+    contactTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        contactTabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        document.querySelectorAll('.contact-panel').forEach(function(p){ p.classList.remove('active'); });
+        var target = document.getElementById('panel-' + tab.dataset.panel);
+        if (target) target.classList.add('active');
+      });
+    });
+  }
+
   // Web3Forms submission handler — applies to contact form and career application forms
   // Replace YOUR_ACCESS_KEY_HERE in each form's hidden access_key field with a real key from web3forms.com
   document.querySelectorAll('form[id$="-form"]').forEach(function(form){
