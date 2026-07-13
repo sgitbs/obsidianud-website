@@ -68,6 +68,17 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
+  // Hero logo video sound toggle
+  var soundBtn = document.getElementById('sound-toggle');
+  var heroVideo = document.getElementById('hero-logo-video');
+  if (soundBtn && heroVideo) {
+    soundBtn.addEventListener('click', function(){
+      heroVideo.muted = !heroVideo.muted;
+      soundBtn.innerHTML = heroVideo.muted ? '&#128264;' : '&#128266;';
+      if (!heroVideo.muted) { heroVideo.play(); }
+    });
+  }
+
   // Web3Forms submission handler — applies to contact form and career application forms
   // Replace YOUR_ACCESS_KEY_HERE in each form's hidden access_key field with a real key from web3forms.com
   document.querySelectorAll('form[id$="-form"]').forEach(function(form){
