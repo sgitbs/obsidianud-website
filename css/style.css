@@ -79,12 +79,13 @@ nav.main-nav{
 @media(max-width:980px){
   .nav-links{display:none;}
   .menu-toggle{display:block;}
+  .nav-cta{display:none;}
   .nav-links.mobile-open{
     display:flex; flex-direction:column; position:fixed; top:66px; left:0; right:0; bottom:0;
     background:var(--obsidian); padding:30px; gap:4px; overflow-y:auto;
   }
   .nav-links.mobile-open > a{font-size:1.1rem; padding:14px 0; border-bottom:1px solid var(--line);}
-  .dropdown{position:static; opacity:1; visibility:visible; transform:none; display:none; width:100%; margin-top:6px; border:none; background:transparent;}
+  .dropdown{position:static; opacity:1; visibility:visible; transform:none; display:none; width:100%; margin-top:6px; border:none; background:transparent; max-height:none; overflow-y:visible;}
   .has-dropdown.open .dropdown{display:block;}
 }
 
