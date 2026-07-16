@@ -1,275 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Careers | Obsidian United Developments Inc.</title>
-<meta name="description" content="Join the Obsidian United Developments crew in Orange County and Los Angeles. Hiring Lead Carpenters, Superintendents, Finish Carpenters, Tile Setters, Painters, Project Managers, and Laborers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Parisienne&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="apple-touch-icon" href="assets/images/favicon.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "GeneralContractor",
-  "name": "Obsidian United Developments Inc.",
-  "image": "https://obsidianud.com/assets/images/logo-mark.png",
-  "telephone": "+1-951-867-6711",
-  "priceRange": "$$$",
-  "description": "Licensed California Class B General Contractor specializing in residential remodeling, home additions, ADUs, custom construction, decorative concrete, and commercial construction throughout Southern California.",
-  "areaServed": [
-    {"@type": "AdministrativeArea", "name": "Orange County, CA"},
-    {"@type": "AdministrativeArea", "name": "Los Angeles County, CA"},
-    {"@type": "AdministrativeArea", "name": "Riverside County, CA"},
-    {"@type": "AdministrativeArea", "name": "San Bernardino County, CA"}
-  ],
-  "address": {"@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US"},
-  "url": "https://obsidianud.com",
-  "sameAs": []
-}
-</script>
+// Obsidian United Developments — Site JS
 
-<link rel="canonical" href="https://obsidianud.com/careers.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Careers | Obsidian United Developments Inc.">
-<meta property="og:description" content="Join the Obsidian United Developments crew in Orange County and Los Angeles. Hiring Lead Carpenters, Superintendents, Finish Carpenters, Tile Setters, Painters, Project Managers, and Laborers.">
-<meta property="og:url" content="https://obsidianud.com/careers.html">
-<meta property="og:image" content="https://obsidianud.com/assets/images/kitchen-1.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Careers | Obsidian United Developments Inc.">
-<meta name="twitter:description" content="Join the Obsidian United Developments crew in Orange County and Los Angeles. Hiring Lead Carpenters, Superintendents, Finish Carpenters, Tile Setters, Painters, Project Managers, and Laborers.">
-</head>
-<body>
-<header class="site-header">
-  <nav class="main-nav">
-    <a href="index.html" class="brand">
-      <img src="assets/images/logo-mark.png" alt="Obsidian United Developments logo">
-      <span class="brand-name">Obsidian United<span>Developments Inc.</span></span>
-    </a>
-    <div class="nav-links">
-    <a href="about.html">About</a>
-    <div class="has-dropdown">
-      <a href="services.html">Services</a>
-      <div class="dropdown">
-      <a href="services-kitchen-remodeling.html">Kitchen Remodeling</a>
-      <a href="services-bathroom-remodeling.html">Bathroom Remodeling</a>
-      <a href="services-whole-home-remodeling.html">Whole Home Remodeling</a>
-      <a href="services-home-additions.html">Home Additions</a>
-      <a href="services-adus.html">ADUs</a>
-      <a href="services-custom-homes.html">Custom Homes</a>
-      <a href="services-commercial-construction.html">Commercial Construction</a>
-      <a href="services-concrete-hardscape.html">Decorative Concrete & Hardscape</a>
-      <a href="services-interior-remodeling.html">Interior Remodeling</a>
-      <a href="services-exterior-remodeling.html">Exterior Remodeling</a>
-      <a href="services-flooring.html">Flooring</a>
-      <a href="services-tile-installation.html">Tile Installation</a>
-      <a href="services-windows-doors.html">Windows & Doors</a>
-      <a href="services-painting.html">Painting</a>
-      </div>
-    </div>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="process.html">Our Process</a>
-    <a href="reviews.html">Reviews</a>
-    <a href="service-areas.html">Service Areas</a>
-      <a href="faq.html">FAQ</a>
-      <a href="careers.html">Careers</a>
-      <a href="blog.html">Blog</a>
-    </div>
-    <a href="contact.html" class="nav-cta">Request Consultation</a>
-    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-  </nav>
-</header>
-<section class="page-hero">
-  <div class="wrap">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Careers</div>
-    <span class="eyebrow">Join The Crew</span>
-    <h1>Build something you're proud of.</h1>
-    <p class="lead">We're a family-owned company doing luxury residential and commercial work across Orange County and Los Angeles County &mdash; looking for skilled, dependable people who take pride in the details.</p>
-  </div>
-</section>
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function(){
+  var toggle = document.querySelector('.menu-toggle');
+  var links = document.querySelector('.nav-links');
+  if(toggle && links){
+    toggle.addEventListener('click', function(){
+      links.classList.toggle('mobile-open');
+    });
+  }
+  // mobile dropdown expand
+  document.querySelectorAll('.has-dropdown > a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if(window.innerWidth <= 980){
+        e.preventDefault();
+        a.parentElement.classList.toggle('open');
+      }
+    });
+  });
 
-<section class="bg-obsidian">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Open Positions</span>
-      <h2>Current openings</h2>
-    </div>
-    <div class="job-card reveal"><div><h3>Lead Carpenter</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Superintendent</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Finish Carpenter</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Tile Setter</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Painter</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Project Manager</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal"><div><h3>Laborers</h3><span>Full-Time &middot; OC / LA &middot; On-Site</span></div><a href="contact.html" class="btn btn-ghost">Apply Now</a></div>
-    <div class="job-card reveal">
-      <div>
-        <h3>Don't see the right role?</h3>
-        <span>We're always open to meeting dependable tradespeople</span>
-      </div>
-      <a href="contact.html" class="btn btn-ghost">Send Your Info</a>
-    </div>
+  // Reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.12});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
 
-    <div class="section-head reveal" style="margin-top:70px;">
-      <span class="eyebrow">Why Obsidian</span>
-      <h2>What working here looks like</h2>
-    </div>
-    <div class="perk-grid">
-      <div class="perk reveal"><h4>Competitive Pay</h4><p>Compensation that reflects skilled trade work on high-end projects.</p></div>
-      <div class="perk reveal"><h4>Growth Opportunities</h4><p>A growing company means real paths from laborer to lead to superintendent.</p></div>
-      <div class="perk reveal"><h4>Family-Owned Company</h4><p>A crew that treats people like people, not headcount.</p></div>
-      <div class="perk reveal"><h4>Professional Work Environment</h4><p>Organized jobsites, clear expectations, and quality checklists on every job.</p></div>
-      <div class="perk reveal"><h4>Referral Bonuses</h4><p>Bring in someone great and get rewarded for it.</p></div>
-      <div class="perk reveal"><h4>Real Mentorship</h4><p>Learn directly from a Master Builder with decades in the field.</p></div>
-    </div>
-  </div>
-</section>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        var a = item.querySelector('.faq-a');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
 
-<section class="bg-charcoal">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Apply Now</span>
-      <h2>Crew &amp; Trade Application</h2>
-      <p>For Lead Carpenter, Superintendent, Project Manager, Tile Installer, Painter, Laborer, Concrete Finisher, and Finish Carpenter roles.</p>
-    </div>
-    <form id="crew-application-form" class="reveal">
-      <input type="hidden" name="access_key" value="0747ab9e-9ce1-448b-95fb-4c193a66155f">
-      <input type="hidden" name="subject" value="New crew application from obsidianud.com">
-      <div class="form-row">
-        <div class="field"><label for="c_name">Full Name</label><input type="text" id="c_name" name="name" required></div>
-        <div class="field"><label for="c_phone">Phone</label><input type="tel" id="c_phone" name="phone" required></div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label for="c_email">Email</label><input type="email" id="c_email" name="email" required></div>
-        <div class="field"><label for="c_role">Position Applying For</label>
-          <select id="c_role" name="position">
-            <option>Lead Carpenter</option>
-            <option>Superintendent</option>
-            <option>Project Manager</option>
-            <option>Finish Carpenter</option>
-            <option>Tile Installer</option>
-            <option>Painter</option>
-            <option>Concrete Finisher</option>
-            <option>Laborer</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label for="c_pay">Desired Pay</label><input type="text" id="c_pay" name="desired_pay" placeholder="e.g. $32/hr"></div>
-        <div class="field"><label for="c_avail">Availability</label><input type="text" id="c_avail" name="availability" placeholder="e.g. Immediate, 2 weeks notice"></div>
-      </div>
-      <div class="field"><label for="c_refs">References (names &amp; phone numbers)</label><textarea id="c_refs" name="references"></textarea></div>
-      <div class="field"><label for="c_resume">Upload Resume</label><input type="file" id="c_resume" name="resume" accept=".pdf,.doc,.docx"></div>
-      <div class="field"><label for="c_photos">Upload Photos of Past Work (optional)</label><input type="file" id="c_photos" name="attachment" accept="image/*" multiple></div>
-      <button type="submit" class="btn btn-primary">Submit Application</button>
-      <div class="form-success" id="crew-form-success">Thanks &mdash; your application was received. We'll follow up if it's a fit.</div>
-    </form>
-  </div>
-</section>
+  // Portfolio filter
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  if(filterBtns.length){
+    filterBtns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        filterBtns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var cat = btn.getAttribute('data-filter');
+        document.querySelectorAll('.work-item').forEach(function(item){
+          if(cat === 'all' || item.getAttribute('data-cat') === cat){
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 
-<section class="bg-obsidian">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Licensed Subcontractors</span>
-      <h2>Subcontractor Application</h2>
-      <p>For licensed subcontractors interested in working with Obsidian United on residential and commercial projects.</p>
-    </div>
-    <form id="sub-application-form" class="reveal">
-      <input type="hidden" name="access_key" value="0747ab9e-9ce1-448b-95fb-4c193a66155f">
-      <input type="hidden" name="subject" value="New subcontractor application from obsidianud.com">
-      <div class="form-row">
-        <div class="field"><label for="s_company">Company Name</label><input type="text" id="s_company" name="company" required></div>
-        <div class="field"><label for="s_license">License Number</label><input type="text" id="s_license" name="license_number" required></div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label for="s_contact">Contact Name</label><input type="text" id="s_contact" name="name" required></div>
-        <div class="field"><label for="s_phone">Phone</label><input type="tel" id="s_phone" name="phone" required></div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label for="s_email">Email</label><input type="email" id="s_email" name="email" required></div>
-        <div class="field"><label for="s_trade">Trade / Specialty</label><input type="text" id="s_trade" name="trade" placeholder="e.g. Electrical, Plumbing, Framing"></div>
-      </div>
-      <div class="field"><label for="s_insurance">Insurance &amp; Bonding Info</label><textarea id="s_insurance" name="insurance_info"></textarea></div>
-      <button type="submit" class="btn btn-primary">Submit Application</button>
-      <div class="form-success" id="sub-form-success">Thanks &mdash; your application was received. We'll reach out if there's a project fit.</div>
-    </form>
-  </div>
-</section>
+  // Hero logo video sound toggle
+  var soundBtn = document.getElementById('sound-toggle');
+  var heroVideo = document.getElementById('hero-logo-video');
+  if (soundBtn && heroVideo) {
+    soundBtn.addEventListener('click', function(){
+      heroVideo.muted = !heroVideo.muted;
+      soundBtn.innerHTML = heroVideo.muted ? '&#128264;' : '&#128266;';
+      if (!heroVideo.muted) { heroVideo.play(); }
+    });
+  }
 
-<div class="trust-bar">
-  <div class="wrap trust-grid">
-    <div class="trust-item"><span class="ic">&#10003;</span><span><strong>Licensed Class B</strong>CSLB License #1084732</span></div>
-    <div class="trust-item"><span class="ic">&#9670;</span><span><strong>Bonded &amp; Insured</strong>Fully covered on every project</span></div>
-    <div class="trust-item"><span class="ic">&#9679;</span><span><strong>Family Owned</strong>Construction Company</span></div>
-    <div class="trust-item"><span class="ic">&#9733;</span><span><strong>39+ Years Experience</strong>Hands-on since age 18</span></div>
-    <div class="trust-item"><span class="ic">&#128295;</span><span><strong>Quality Craftsmanship</strong>Every detail, checked twice</span></div>
-  </div>
-</div>
-<section class="cta" id="contact-cta">
-  <div class="wrap">
-    <span class="eyebrow">Get Started</span>
-    <h2>Questions before you apply?</h2>
-    <p>Reach out and we'll walk you through next steps.</p>
-    <div class="btn-row">
-      <a href="contact.html" class="btn btn-primary">Request Consultation</a>
-      <a href="tel:+19518676711" class="btn btn-ghost">(951) 867-6711</a>
-    </div>
-  </div>
-</section>
+  // Contact page tab switcher (Project Estimate / General Inquiry / Job Application)
+  var contactTabs = document.querySelectorAll('.contact-tab');
+  if (contactTabs.length) {
+    contactTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        contactTabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        document.querySelectorAll('.contact-panel').forEach(function(p){ p.classList.remove('active'); });
+        var target = document.getElementById('panel-' + tab.dataset.panel);
+        if (target) target.classList.add('active');
+      });
+    });
+  }
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img src="assets/images/logo-mark.png" alt="Obsidian United Developments" style="width:56px; height:auto; margin-bottom:18px; filter:drop-shadow(0 0 12px rgba(198,163,92,0.3));">
-        <h4>Obsidian United</h4>
-        <p>Licensed California Class B General Contractor. Bonded &amp; insured. Family owned.</p>
-        <p>CSLB License #1084732</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services-kitchen-remodeling.html">Kitchen Remodeling</a>
-        <a href="services-bathroom-remodeling.html">Bathroom Remodeling</a>
-        <a href="services-whole-home-remodeling.html">Whole Home Remodeling</a>
-        <a href="services-home-additions.html">Home Additions</a>
-        <a href="services-adus.html">ADUs</a>
-        <a href="services-custom-homes.html">Custom Homes</a>
-        <a href="services-commercial-construction.html">Commercial Construction</a>
-        <a href="services-concrete-hardscape.html">Decorative Concrete & Hardscape</a>
-        <a href="services-interior-remodeling.html">Interior Remodeling</a>
-        <a href="services-exterior-remodeling.html">Exterior Remodeling</a>
-        <a href="services-flooring.html">Flooring</a>
-        <a href="services-tile-installation.html">Tile Installation</a>
-        <a href="services-windows-doors.html">Windows & Doors</a>
-        <a href="services-painting.html">Painting</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="before-after.html">Before &amp; After</a>
-        <a href="process.html">Our Process</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="careers.html">Careers</a>
-        <a href="blog.html">Blog</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:+19518676711">(951) 867-6711</a>
-        <p>Serving Southern California</p>
-        <a href="contact.html">Request a Consultation</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="foot-note">&copy; 2026 Obsidian United Developments Inc. &middot; Licensed California Class B General Contractor &middot; CSLB License #1084732 &middot; Bonded &amp; Insured</span>
-      <span class="foot-note">Kitchen Remodeling &middot; Bathroom Remodeling &middot; Whole Home Remodeling &middot; Home Additions &middot; ADUs &middot; Decorative Concrete &amp; Hardscape &middot; Commercial Construction</span>
-    </div>
-  </div>
-</footer>
-<a href="contact.html" class="sticky-cta">Request Consultation</a>
-<script src="js/main.js"></script>
-</body>
-</html>
+  // Web3Forms submission handler — applies to contact form and career application forms
+  // Replace YOUR_ACCESS_KEY_HERE in each form's hidden access_key field with a real key from web3forms.com
+  document.querySelectorAll('form[id$="-form"]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      var data = new FormData(form);
+      var successEl = form.parentElement.querySelector('.form-success') || document.getElementById('form-success');
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(res){ return res.json(); })
+        .then(function(json){
+          btn.textContent = originalText;
+          btn.disabled = false;
+          if(json.success){
+            form.reset();
+            if(successEl) successEl.style.display = 'block';
+          } else {
+            alert('Something went wrong. Please call or email us directly.');
+          }
+        }).catch(function(){
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert('Something went wrong. Please call or email us directly.');
+        });
+    });
+  });
+});
